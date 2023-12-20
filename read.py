@@ -2,7 +2,7 @@ import cv2 as cv
 
 # Reading Images
 
-img = cv.imread('cat-large.png')
+img = cv.imread('Photos/cat-large.png')
 cv.imshow('Cat', img)
 
 # Reading Videos
@@ -21,3 +21,6 @@ cv.destryAllWindows()
 cv.waitKey(0)
 
 
+
+
+    
