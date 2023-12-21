@@ -6,18 +6,18 @@ haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
 people = ['Bryan Cranston', 'Tomas Shelby', 'Walid']
 
-featrures = np.load('features.npy')
-labels = np.load('labels.npy')
+featrures = np.load('features.npy', allow_pickle=True)
+labels = np.load('labels.npy', allow_pickle=True)
 
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
 face_recognizer.read('face_trained.yml')
 
-img = cv.imread(r'C:\Users\Lenovo\Desktop\University\S7\Thesis\opencv\Faces\Walid\1.png')
+img = cv.imread(r'C:\Users\Lenovo\Desktop\University\S7\Thesis\opencv\photo1.png')
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-cv.imshow('Person', gray)
+# cv.imshow('Person', gray)
 
-faces_rect = haar_cascade.detectMultiScale(gray, 1.1, 4)
+faces_rect = haar_cascade.detectMultiScale(gray, 1.1, 10)
 
 for (x,y,w,h) in faces_rect:
     faces_roi = gray[y:y+h, x:x+w]

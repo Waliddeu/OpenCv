@@ -34,10 +34,11 @@ create_train()
 
 print ('Training done --------------->')
 
+face_recognizer = cv.face.LBPHFaceRecognizer_create()
+
 features = np.array(features, dtype='object')
 labels = np.array(labels)
 
-face_recognizer = cv.face.LBPHFaceRecognizer_create()
 
 # Train the recognizer on the features list and the labels list
 face_recognizer.train(features, labels)
@@ -48,9 +49,3 @@ np.save('labels.npy', labels)
 
 print(f'langth of features = {len(features)}')
 print(f'langth of lables = {len(labels)}')
-
-
-
-
-
-
